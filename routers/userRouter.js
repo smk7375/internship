@@ -4,7 +4,7 @@ const userRouter = express.Router();
 
 const{getUser , getAllusers , updateUser} = require('../controller/usercontroller');
 
-const {login , signup , isAuthorised , protectRoute} = require('../controller/authcontroller');
+const {login , signup , protectRoute} = require('../controller/authcontroller');
 
 // sign up
 userRouter.route('/signup')
@@ -20,7 +20,8 @@ userRouter.use(protectRoute);
 userRouter.route('/:id')
 .patch(updateUser)
 
-
+// get a user profile when user logged in
+userRouter.use(protectRoute);
 userRouter.route('/userProfile')
 .get(getUser)
 

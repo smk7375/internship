@@ -42,7 +42,11 @@ const userSchema = mongoose.Schema({
         type:String,
         enum:['user','admin','delieveryboy','restrauntowner'],
         default:'user'
-    }
+    },
+    profileImage:{
+        type:String,
+        default:'img/user/default.jpeg'
+    },
 });
 
 userSchema.pre('save',function(){

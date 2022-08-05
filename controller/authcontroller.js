@@ -1,6 +1,7 @@
 const express = require('express');
 
 const usermodel = require('../models/usermodel');
+const userprofilemodel = require('../models/userprofile');
 
 const jwt = require('jsonwebtoken');
 
@@ -69,17 +70,7 @@ module.exports.login = async function login(req, res) {
 
 }
 
-module.exports.isAuthorised = function isAuthorised(roles) {
-    return function (req, res, next) {
-        if (roles.includes(req.role) == true) {
-            next();
-        } else {
-            res.status(401).json({
-                message: 'operation not allowed',
-            });
-        }
-    }
-}
+
 
 module.exports.protectRoute = async function protectRoute(req, res, next) {
     try {

@@ -1,4 +1,5 @@
 const usermodel = require('../models/usermodel');
+const userprofilemodel = require('../models/userprofile');
 
 // get all user
 module.exports.getAllusers = async function getAllusers(req, res) {
